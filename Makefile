@@ -37,15 +37,14 @@ LD = arm-none-eabi-ld
 BASENAME=c1m4
 TARGET=$(BASENAME).out
 LDFLAGS =-Wl,-Map=$(BASENAME).map -T ./$(LINKER_FILE)
-CPPFLAGs=-Wall -Werror -g -O0 -std=c99 $(INCLUDES) 
+CPPFLAGs=-Wall -Werror -g -O0 -std=c99 $(INCLUDES)
 CFLAGS =-DMSP432 -mcpu=$(CPU) -m$(ARCH) -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=$(SPECS) $(CPPFLAGs) -MD 
 
 ifeq ($(PLATFORM),MSP)
 	PLATFORM=MSP432
 	CC=arm-none-eabi-gcc
 	LD=arm-none-eabi-ld
-endif
-ifeq ($(PLATFORM),HOST)
+else ($(PLATFORM),HOST)
 	PLATFORM=HOST
 	CC=gcc
 	SOURCES = ./src/main.c\
