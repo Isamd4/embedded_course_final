@@ -22,12 +22,12 @@
 
 
 #include <stdio.h>
-#include "stats.h"
+#include "../include/common/stats.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+void print_main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
@@ -41,11 +41,9 @@ void main() {
   puts("------STATISTICS BEFORE SORTING---");
   print_statistics(test,length);
   puts("--------------------");
-  puts("\n---------Content of the array Before sorting----------- ");
-  print_array(test,length);
-  puts("--------------------");
   puts("\n---------Content of the array After sorting----------- ");
   sort_array(test,length);
+  
   print_array(test,length);
   puts("\n------STATISTICS AFTER SORTING---");
   print_statistics(test,length);
@@ -53,10 +51,12 @@ void main() {
 
 /* Add other Implementation File Code Here */
 void print_array(unsigned char arr[],unsigned int length){
+  #ifdef VERBOSE
   int i=0;
   for(i=0;i<length;i++){
     printf("index %d : %u\n",i,*(arr+i));
   }
+  #endif
 }
 unsigned int find_mean(unsigned char arr[],unsigned int length){
    unsigned int  sum=0;

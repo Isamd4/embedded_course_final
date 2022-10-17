@@ -18,12 +18,13 @@
  */
 
 #include <stdint.h>
-#include "course1.h"
-#include "platform.h"
-#include "memory.h"
-#include "data.h"
-#include "stats.h"
-
+#include "../include/common/course1.h"
+#include "../include/common/platform.h"
+#include "../include/common/memory.h"
+#include "../include/common/data.h"
+#include "../include/common/stats.h"
+#define BASE_16 (16)
+#define BASE_10 (10)
 int8_t test_data1() {
   uint8_t * ptr;
   int32_t num = -4096;
@@ -234,7 +235,6 @@ int8_t test_memcopy() {
       ret = TEST_ERROR;
     }
   }
-
   free_words( (uint32_t*)set );
   return ret;
 }
@@ -326,7 +326,6 @@ void course1(void)
   uint8_t i;
   int8_t failed = 0;
   int8_t results[TESTCOUNT];
-
   results[0] = test_data1();
   results[1] = test_data2();
   results[2] = test_memmove1();

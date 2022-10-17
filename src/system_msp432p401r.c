@@ -43,7 +43,7 @@
 //*****************************************************************************
 
 #include <stdint.h>
-#include "msp432p401r.h"
+#include "../include/msp432/msp432p401r.h"
 
 /*--------------------- Configuration Instructions ----------------------------
    1. If you prefer to halt the Watchdog Timer, set __HALT_WDT to 1:

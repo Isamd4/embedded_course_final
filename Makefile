@@ -34,9 +34,9 @@ SPECS = nosys.specs
 # Compiler Flags and Defines
 CC = arm-none-eabi-gcc
 LD = arm-none-eabi-ld
-BASENAME=c1m2
+BASENAME=c1m4
 TARGET=$(BASENAME).out
-LDFLAGS =-Wl,-Map=$(BASENAME).map -T ../$(LINKER_FILE)
+LDFLAGS =-Wl,-Map=$(BASENAME).map -T ./$(LINKER_FILE)
 CPPFLAGs=-Wall -Werror -g -O0 -std=c99 $(INCLUDES) 
 CFLAGS =-DMSP432 -mcpu=$(CPU) -m$(ARCH) -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=$(SPECS) $(CPPFLAGs) -MD 
 
@@ -48,10 +48,13 @@ endif
 ifeq ($(PLATFORM),HOST)
 	PLATFORM=HOST
 	CC=gcc
-	SOURCES = ./main.c\
-		 	  ./memory.c
+	SOURCES = ./src/main.c\
+		  	  ./src/memory.c\
+		 	  ./src/course1.c\
+		  	  ./src/data.c\
+		 	  ./src/stats.c
 	LDFLAGS =-Wl,-Map=$(BASENAME).map 
-	CFLAGS=$(CPPFLAGs) -DHOST -MD
+	CFLAGS=$(CPPFLAGs) -DHOST -DCOURSE1 -DVERBOSE -MD
 endif
 
 OBJS:=$(SOURCES:.c=.o)

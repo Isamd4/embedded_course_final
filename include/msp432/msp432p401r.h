@@ -222,7 +222,7 @@ typedef enum IRQn
 #include "core_cm4.h"
 #pragma diag_pop
 #else
-#include "core_cm4.h"
+#include "../CMSIS/core_cm4.h"
 #endif
 
 /* System Header */
@@ -1246,12 +1246,12 @@ typedef struct {
   __I  uint32_t RESERVED24;                                                      /*!< Reserved */
   __I  uint32_t RESERVED25;                                                      /*!< Reserved */
   __I  uint32_t RESERVED26;                                                      /*!< Reserved */
-  __I  uint32_t ADC14_REF1P2V_TS30C;                                             /*!< ADC14 1.2V Reference Temp. Sensor 30°C */
-  __I  uint32_t ADC14_REF1P2V_TS85C;                                             /*!< ADC14 1.2V Reference Temp. Sensor 85°C */
-  __I  uint32_t ADC14_REF1P45V_TS30C;                                            /*!< ADC14 1.45V Reference Temp. Sensor 30°C */
-  __I  uint32_t ADC14_REF1P45V_TS85C;                                            /*!< ADC14 1.45V Reference Temp. Sensor 85°C */
-  __I  uint32_t ADC14_REF2P5V_TS30C;                                             /*!< ADC14 2.5V Reference Temp. Sensor 30°C */
-  __I  uint32_t ADC14_REF2P5V_TS85C;                                             /*!< ADC14 2.5V Reference Temp. Sensor 85°C */
+  __I  uint32_t ADC14_REF1P2V_TS30C;                                             /*!< ADC14 1.2V Reference Temp. Sensor 30ï¿½C */
+  __I  uint32_t ADC14_REF1P2V_TS85C;                                             /*!< ADC14 1.2V Reference Temp. Sensor 85ï¿½C */
+  __I  uint32_t ADC14_REF1P45V_TS30C;                                            /*!< ADC14 1.45V Reference Temp. Sensor 30ï¿½C */
+  __I  uint32_t ADC14_REF1P45V_TS85C;                                            /*!< ADC14 1.45V Reference Temp. Sensor 85ï¿½C */
+  __I  uint32_t ADC14_REF2P5V_TS30C;                                             /*!< ADC14 2.5V Reference Temp. Sensor 30ï¿½C */
+  __I  uint32_t ADC14_REF2P5V_TS85C;                                             /*!< ADC14 2.5V Reference Temp. Sensor 85ï¿½C */
   __I  uint32_t REF_CAL_TAG;                                                     /*!< REF Calibration Tag */
   __I  uint32_t REF_CAL_LEN;                                                     /*!< REF Calibration Length */
   __I  uint32_t REF_1P2V;                                                        /*!< REF 1.2V Reference */

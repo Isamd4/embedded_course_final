@@ -35,7 +35,7 @@
  * @return it return nothing as it is a void funtion
  */
 void print_statistics(unsigned char arr[],unsigned int length);
-
+void print_main();
 /**
  * @brief prints out all the elements of an unsigned char array
  *
