@@ -206,7 +206,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
                 0x00000000000010e0                printf@@GLIBC_2.2.5
                 0x00000000000010f0                malloc@@GLIBC_2.2.5
 
-.text           0x0000000000001100     0x1455
+.text           0x0000000000001100     0x1375
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
@@ -233,88 +233,87 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
                 0x0000000000001651                my_reverse
                 0x00000000000016cf                reserve_words
                 0x0000000000001707                free_words
- .text          0x0000000000001726      0x171 src/data.o
+ .text          0x0000000000001726      0x149 src/data.o
                 0x0000000000001726                my_itoa
                 0x00000000000017d7                my_atoi
- .text          0x0000000000001897      0x8f9 src/course1.o
-                0x0000000000001897                test_data1
-                0x0000000000001962                test_data2
-                0x0000000000001a2d                test_memmove1
-                0x0000000000001b20                test_memmove2
-                0x0000000000001c13                test_memmove3
-                0x0000000000001d0b                test_memcopy
-                0x0000000000001dfe                test_memset
-                0x0000000000001f28                test_reverse
-                0x0000000000002061                course1
- .text          0x0000000000002190      0x349 src/stats.o
-                0x0000000000002190                print_array
-                0x00000000000021ec                find_mean
-                0x0000000000002241                find_median
-                0x00000000000022ac                find_maximum
-                0x000000000000230f                find_minimum
-                0x0000000000002372                sort_array
-                0x000000000000242d                print_statistics
- *fill*         0x00000000000024d9        0x7 
- .text          0x00000000000024e0       0x75 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
-                0x00000000000024e0                __libc_csu_init
-                0x0000000000002550                __libc_csu_fini
- .text          0x0000000000002555        0x0 /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o
- .text          0x0000000000002555        0x0 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+ .text          0x000000000000186f      0x88d src/course1.o
+                0x000000000000186f                test_data1
+                0x0000000000001904                test_data2
+                0x0000000000001999                test_memmove1
+                0x0000000000001a8c                test_memmove2
+                0x0000000000001b7f                test_memmove3
+                0x0000000000001c77                test_memcopy
+                0x0000000000001d6a                test_memset
+                0x0000000000001e94                test_reverse
+                0x0000000000001fcd                course1
+ .text          0x00000000000020fc      0x2ff src/stats.o
+                0x00000000000020fc                print_array
+                0x000000000000210e                find_mean
+                0x0000000000002163                find_median
+                0x00000000000021ce                find_maximum
+                0x0000000000002231                find_minimum
+                0x0000000000002294                sort_array
+                0x000000000000234f                print_statistics
+ *fill*         0x00000000000023fb        0x5 
+ .text          0x0000000000002400       0x75 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x0000000000002400                __libc_csu_init
+                0x0000000000002470                __libc_csu_fini
+ .text          0x0000000000002475        0x0 /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o
+ .text          0x0000000000002475        0x0 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
  *(.gnu.warning)
 
-.fini           0x0000000000002558        0xd
+.fini           0x0000000000002478        0xd
  *(SORT_NONE(.fini))
- .fini          0x0000000000002558        0x8 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o
-                0x0000000000002558                _fini
- .fini          0x0000000000002560        0x5 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+ .fini          0x0000000000002478        0x8 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o
+                0x0000000000002478                _fini
+ .fini          0x0000000000002480        0x5 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
                 [!provide]                        PROVIDE (__etext = .)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (etext = .)
                 0x0000000000003000                . = ALIGN (CONSTANT (MAXPAGESIZE))
                 0x0000000000003000                . = SEGMENT_START ("rodata-segment", (ALIGN (CONSTANT (MAXPAGESIZE)) + (. & (CONSTANT (MAXPAGESIZE) - 0x1))))
 
-.rodata         0x0000000000003000      0x200
+.rodata         0x0000000000003000      0x199
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.cst4   0x0000000000003000        0x4 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
                 0x0000000000003000                _IO_stdin_used
- .rodata        0x0000000000003004        0x6 src/data.o
- *fill*         0x000000000000300a        0x6 
- .rodata        0x0000000000003010      0x185 src/course1.o
- .rodata        0x0000000000003195       0x6b src/stats.o
+ *fill*         0x0000000000003004        0x4 
+ .rodata        0x0000000000003008      0x135 src/course1.o
+ .rodata        0x000000000000313d       0x5c src/stats.o
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x0000000000003200      0x134
+.eh_frame_hdr   0x000000000000319c      0x134
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x0000000000003200      0x134 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
-                0x0000000000003200                __GNU_EH_FRAME_HDR
+ .eh_frame_hdr  0x000000000000319c      0x134 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
+                0x000000000000319c                __GNU_EH_FRAME_HDR
  *(.eh_frame_entry .eh_frame_entry.*)
 
-.eh_frame       0x0000000000003338      0x4d0
+.eh_frame       0x00000000000032d0      0x4d0
  *(.eh_frame)
- .eh_frame      0x0000000000003338       0x30 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
+ .eh_frame      0x00000000000032d0       0x30 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
                                          0x2c (size before relaxing)
- *fill*         0x0000000000003368        0x0 
- .eh_frame      0x0000000000003368       0x28 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
+ *fill*         0x0000000000003300        0x0 
+ .eh_frame      0x0000000000003300       0x28 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
                                          0x40 (size before relaxing)
- .eh_frame      0x0000000000003390       0x18 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
+ .eh_frame      0x0000000000003328       0x18 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
                                          0x30 (size before relaxing)
- .eh_frame      0x00000000000033a8       0x18 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
+ .eh_frame      0x0000000000003340       0x18 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o
                                          0x30 (size before relaxing)
- .eh_frame      0x00000000000033c0       0x20 src/main.o
+ .eh_frame      0x0000000000003358       0x20 src/main.o
                                          0x38 (size before relaxing)
- .eh_frame      0x00000000000033e0      0x188 src/memory.o
+ .eh_frame      0x0000000000003378      0x188 src/memory.o
                                         0x1a0 (size before relaxing)
- .eh_frame      0x0000000000003568       0x40 src/data.o
+ .eh_frame      0x0000000000003500       0x40 src/data.o
                                          0x58 (size before relaxing)
- .eh_frame      0x00000000000035a8      0x120 src/course1.o
+ .eh_frame      0x0000000000003540      0x120 src/course1.o
                                         0x138 (size before relaxing)
- .eh_frame      0x00000000000036c8       0xe0 src/stats.o
+ .eh_frame      0x0000000000003660       0xe0 src/stats.o
                                          0xf8 (size before relaxing)
- .eh_frame      0x00000000000037a8       0x5c /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .eh_frame      0x0000000000003740       0x5c /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                                          0x78 (size before relaxing)
- .eh_frame      0x0000000000003804        0x4 /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o
+ .eh_frame      0x000000000000379c        0x4 /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o
  *(.eh_frame.*)
 
 .gcc_except_table
@@ -538,29 +537,29 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x17f4
+.debug_info     0x0000000000000000     0x158a
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x313 src/main.o
  .debug_info    0x0000000000000313      0x51d src/memory.o
- .debug_info    0x0000000000000830      0x3f3 src/data.o
- .debug_info    0x0000000000000c23      0x6c1 src/course1.o
- .debug_info    0x00000000000012e4      0x510 src/stats.o
+ .debug_info    0x0000000000000830      0x196 src/data.o
+ .debug_info    0x00000000000009c6      0x6c1 src/course1.o
+ .debug_info    0x0000000000001087      0x503 src/stats.o
 
-.debug_abbrev   0x0000000000000000      0x5f4
+.debug_abbrev   0x0000000000000000      0x587
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0xf7 src/main.o
  .debug_abbrev  0x00000000000000f7      0x11e src/memory.o
- .debug_abbrev  0x0000000000000215      0x12d src/data.o
- .debug_abbrev  0x0000000000000342      0x158 src/course1.o
- .debug_abbrev  0x000000000000049a      0x15a src/stats.o
+ .debug_abbrev  0x0000000000000215       0xc0 src/data.o
+ .debug_abbrev  0x00000000000002d5      0x158 src/course1.o
+ .debug_abbrev  0x000000000000042d      0x15a src/stats.o
 
-.debug_line     0x0000000000000000      0xc65
+.debug_line     0x0000000000000000      0xb9f
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x14e src/main.o
  .debug_line    0x000000000000014e      0x28d src/memory.o
- .debug_line    0x00000000000003db      0x1c5 src/data.o
- .debug_line    0x00000000000005a0      0x435 src/course1.o
- .debug_line    0x00000000000009d5      0x290 src/stats.o
+ .debug_line    0x00000000000003db      0x131 src/data.o
+ .debug_line    0x000000000000050c      0x42d src/course1.o
+ .debug_line    0x0000000000000939      0x266 src/stats.o
 
 .debug_frame
  *(.debug_frame)
@@ -572,7 +571,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
  .debug_str     0x000000000000029c       0xc4 src/memory.o
                                         0x211 (size before relaxing)
  .debug_str     0x0000000000000360       0x27 src/data.o
-                                        0x33c (size before relaxing)
+                                        0x18f (size before relaxing)
  .debug_str     0x0000000000000387       0x96 src/course1.o
                                         0x3bc (size before relaxing)
  .debug_str     0x000000000000041d       0x64 src/stats.o
