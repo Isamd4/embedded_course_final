@@ -24,34 +24,40 @@
 include sources.mk
 
 # Platform Overrides
-PLATFORM = 
+PLATFORM =
+VERBOSE?=
+V=
+COURSE=
+C=
 # Architectures Specific Flags
 LINKER_FILE =msp432p401r.lds
 CPU = cortex-m4
 ARCH = thumb
 SPECS = nosys.specs
 
+ifeq ($(VERBOSE),yes)
+	V=-DVERBOSE
+else 
+	V=
+endif
+ifeq ($(COURSE),course1)
+	C=-DCOURSE1
+endif
+
+
 # Compiler Flags and Defines
 CC = arm-none-eabi-gcc
 LD = arm-none-eabi-ld
-BASENAME=c1m2
+BASENAME=c1m4
 TARGET=$(BASENAME).out
-LDFLAGS =-Wl,-Map=$(BASENAME).map -T ../$(LINKER_FILE)
+LDFLAGS =-Wl,-Map=$(BASENAME).map -T ./$(LINKER_FILE)
 CPPFLAGs=-Wall -Werror -g -O0 -std=c99 $(INCLUDES) 
-CFLAGS =-DMSP432 -mcpu=$(CPU) -m$(ARCH) -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=$(SPECS) $(CPPFLAGs) -MD 
+CFLAGS =-DMSP432 -mcpu=$(CPU) -m$(ARCH) -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=$(SPECS) $(CPPFLAGs) $(V) $(C) -MD 
 
-ifeq ($(PLATFORM),MSP)
-	PLATFORM=MSP432
-	CC=arm-none-eabi-gcc
-	LD=arm-none-eabi-ld
-endif
 ifeq ($(PLATFORM),HOST)
-	PLATFORM=HOST
 	CC=gcc
-	SOURCES = ./main.c\
-		 	  ./memory.c
 	LDFLAGS =-Wl,-Map=$(BASENAME).map 
-	CFLAGS=$(CPPFLAGs) -DHOST -MD
+	CFLAGS=$(CPPFLAGs) -DHOST -MD $(V) $(C)
 endif
 
 OBJS:=$(SOURCES:.c=.o)
@@ -78,4 +84,4 @@ $(TARGET):$(OBJS)
 	size $(TARGET)
 .PHONY:clean
 clean:
-	rm -f $(OBJS) $(TARGET) $(BASENAME).map $() $(PREFLS) $(ASMFLS) $(DEPFLS) 
+	rm -f  $(OBJS) $(TARGET) $(BASENAME).map $() $(PREFLS) $(ASMFLS) $(DEPFLS) 

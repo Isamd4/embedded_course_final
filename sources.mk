@@ -8,17 +8,37 @@
 # misuse of this material. 
 #
 #*****************************************************************************
-
+SOURCES = ./src/main.c\
+		  ./src/memory.c\
+		  ./src/interrupts_msp432p401r_gcc.c\
+		  ./src/startup_msp432p401r_gcc.c\
+		  ./src/system_msp432p401r.c
+PLATFORM=
 # Add your Source files to this variable
-SOURCES = ./main.c\
-		  ./memory.c\
-		  ./interrupts_msp432p401r_gcc.c\
-		  ./startup_msp432p401r_gcc.c\
-		  ./system_msp432p401r.c
+ifeq ($(PLATFORM),MSP432)
+SOURCES = ./src/main.c\
+		  ./src/memory.c\
+		  ./src/interrupts_msp432p401r_gcc.c\
+		  ./src/startup_msp432p401r_gcc.c\
+		  ./src/system_msp432p401r.c
 
 # Add your include paths to this variable
-INCLUDES = -I ../src\
-		   -I ../include/common\
-		   -I ../include/msp432\
-		   -I ../include/CMSIS
+INCLUDES = -I ./src\
+		   -I ./include/common\
+		   -I ./include/msp432\
+		   -I ./include/CMSIS
 
+else ifeq($(PLATFORM),HOST)
+SOURCES = ./src/main.c\
+		  ./src/memory.c\
+		  ./src/data.c\
+		  ./src/course1.c\
+		  ./src/stats.c
+
+# Add your include paths to this variable
+INCLUDES = -I ./src\
+		   -I ./include/common\
+		   -I ./include/msp432\
+		   -I ./include/CMSIS
+
+endif
